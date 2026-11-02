@@ -1594,6 +1594,7 @@ void b3Shape_SetSphere( b3ShapeId shapeId, const b3Sphere* sphere )
 	shape->sphere = *sphere;
 	shape->type = b3_sphereShape;
 	shape->aabbMargin = b3ComputeShapeMargin( shape );
+	shape->localCentroid = b3GetShapeCentroid( shape );
 
 	// need to wake bodies so they can react to the shape change
 	bool wakeBodies = true;
@@ -1622,6 +1623,7 @@ void b3Shape_SetCapsule( b3ShapeId shapeId, const b3Capsule* capsule )
 	shape->capsule = *capsule;
 	shape->type = b3_capsuleShape;
 	shape->aabbMargin = b3ComputeShapeMargin( shape );
+	shape->localCentroid = b3GetShapeCentroid( shape );
 
 	// need to wake bodies so they can react to the shape change
 	bool wakeBodies = true;
@@ -1671,6 +1673,7 @@ void b3Shape_SetHull( b3ShapeId shapeId, const b3HullData* hull )
 	shape->hull = data;
 	shape->type = b3_hullShape;
 	shape->aabbMargin = b3ComputeShapeMargin( shape );
+	shape->localCentroid = b3GetShapeCentroid( shape );
 
 	// need to wake bodies so they can react to the shape change
 	bool wakeBodies = true;
