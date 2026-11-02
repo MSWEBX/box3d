@@ -144,6 +144,10 @@ typedef struct b3Capacity
 
 	/// Number of expected contacts.
 	int contactCount;
+
+	/// Initial size of the world's per-step stack allocator in bytes. The stack grows during a step
+	/// when exceeded, which allocates. Zero (the default) keeps the built-in 2048 bytes.
+	int stackByteCount;
 } b3Capacity;
 
 /// World definition used to create a simulation world. Must be initialized using b3DefaultWorldDef.
