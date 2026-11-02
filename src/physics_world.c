@@ -251,7 +251,7 @@ b3WorldId b3CreateWorld( const b3WorldDef* def )
 	world->generation = revision;
 	world->inUse = true;
 
-	world->stack = b3CreateStack( 2048 );
+	world->stack = b3CreateStack( b3MaxInt( 2048, def->capacity.stackByteCount ) );
 
 	b3Array_Reserve( world->manifoldAllocators, 16 );
 	world->manifoldAllocatorMutex = b3CreateMutex();
